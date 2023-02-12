@@ -1,0 +1,13 @@
+# Libraries
+Django==4.1.6
+
+# Linting
+flake8
+pylint
+mypy
+autopep8
+
+# Documentation
+mkdocs
+mkdocs-material
+mkdocstrings
