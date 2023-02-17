@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block title %}Ole Bause | About{% endblock title %}
+{% block title %}{{ name }} | About{% endblock title %}
 
 
 {% block content-area %}
@@ -15,7 +15,7 @@
       <!-- Personal Information -->
       <div class="row">
         <div class="col-xs-12 col-sm-7">
-          <p>Proin volutpat mauris ac pellentesque pharetra. Suspendisse congue elit vel odio suscipit, sit amet tempor nisl imperdiet. Quisque ex justo, faucibus ut mi in, condimentum finibus dolor. Aliquam vitae hendrerit dolor, eget imperdiet mauris. Maecenas et ante id ipsum condimentum dictum et vel massa. Ut in imperdiet dolor, vel consectetur dui.</p>
+          <p>{{ contact.description }}</p>
         </div>
 
         <div class="col-xs-12 col-sm-5">
@@ -23,27 +23,27 @@
             <ul>
               <li>
                 <span class="title">Age</span>
-                <span class="value">32</span>
+                <span class="value">{{ contact.age }}</span>
               </li>
 
               <li>
-                <span class="title">Residence</span>
-                <span class="value">USA</span>
+                <span class="title">Nationality</span>
+                <span class="value">{{ contact.nationality }}</span>
               </li>
 
               <li>
                 <span class="title">Address</span>
-                <span class="value">88 Some Street, Some Town</span>
+                <span class="value">hidden</span>
               </li>
 
               <li>
                 <span class="title">e-mail</span>
-                <span class="value">email@example.com</span>
+                <span class="value"><a href="mailto:{{ contact.email }}">{{ contact.email }}</a></span>
               </li>
 
               <li>
                 <span class="title">Phone</span>
-                <span class="value">+0123 123 456 789</span>
+                <span class="value">hidden</span>
               </li>
             </ul>
           </div>

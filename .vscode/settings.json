@@ -74,7 +74,7 @@
     // Other extensions
     "codesnap.showWindowControls": false,
     "codesnap.shutterAction": "copy",
-    "editor.cursorSmoothCaretAnimation": true,
+    "editor.cursorSmoothCaretAnimation": "on",
     "Workspace_Formatter.includePattern": ["*.py"],
     "Workspace_Formatter.excludePattern": ["**/build", "**/.*", "**/.vscode"],
     "svg.preview.autoOpen": true,

@@ -1,11 +1,18 @@
 from django.shortcuts import render
+from django.template import RequestContext
+
+from .models import Contact
 
 
-def main(request):
+def home(request):
+    # contact = Contact.objects.first()
+
     return render(request, "core/main.html")
 
 
 def about(request):
+    contact = Contact.objects.first()
+    print(f"Age: {contact.age()}")
     return render(request, "core/about.html")
 
 

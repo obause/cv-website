@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block title %}Ole Bause | Home{% endblock title %}
+{% block title %}{{ name }} | Home{% endblock title %}
 
 
 {% block content-area %}
@@ -13,7 +13,7 @@
       <div class="row">
         <div class="col-sm-12 col-md-12 col-lg-12">
           <div class="title-block">
-            <h2>Ole Bause</h2>
+            <h2>{{ name }}</h2>
             <div class="owl-carousel text-rotation">
               <div class="item">
                 <div class="sp-subtitle">Computer Science Student</div>
