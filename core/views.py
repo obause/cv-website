@@ -32,7 +32,7 @@ def resume(request):
     education_items = contact.education.all().order_by("-start_date")
     work_experience_items = contact.experience.all().order_by("-start_date")
     skills = contact.skills.all()
-
+    print(skills)
     skills_by_category = {}
     for skill in skills:
         if skill.category.name not in skills_by_category:
@@ -44,6 +44,8 @@ def resume(request):
         "work_experience_items": work_experience_items,
         "skills_by_category": skills_by_category
     }
+
+    print(skills_by_category)
 
     return render(request, "core/resume.html", context)
 
