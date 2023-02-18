@@ -28,7 +28,9 @@ def about(request):
 
 
 def resume(request):
-    return render(request, "core/resume.html")
+    contact = Contact.objects.first()
+    education_items = contact.education.all().order_by("-start_date")
+    return render(request, "core/resume.html", {"education_items": education_items})
 
 
 def portfolio(request):

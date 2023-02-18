@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block title %}Ole Bause | CV{% endblock title %}
+{% block title %}{{ name }} | CV Resume{% endblock title %}
 
 
 {% block content-area %}
@@ -20,29 +20,9 @@
           </div>
 
           <div class="timeline timeline-second-style clearfix">
-            <div class="timeline-item clearfix">
-              <div class="left-part">
-                <h5 class="item-period">2008</h5>
-                <span class="item-company">University of Studies</span>
-              </div>
-              <div class="divider"></div>
-              <div class="right-part">
-                <h4 class="item-title">Frontend Development</h4>
-                <p>Maecenas finibus nec sem ut imperdiet. Ut tincidunt est ac dolor aliquam sodales. Phasellus sed mauris hendrerit, laoreet sem in, lobortis ante.</p>
-              </div>
-            </div>
-
-            <div class="timeline-item clearfix">
-              <div class="left-part">
-                <h5 class="item-period">2007</h5>
-                <span class="item-company">University of Studies</span>
-              </div>
-              <div class="divider"></div>
-              <div class="right-part">
-                <h4 class="item-title">Graphic Design</h4>
-                <p>Aliquam tincidunt malesuada tortor vitae iaculis. In eu turpis iaculis, feugiat risus quis, aliquet urna. Quisque fringilla mollis risus, eu pulvinar dolor.</p>
-              </div>
-            </div>
+            {% for item in education_items %}
+            {% include "core/includes/timelineitem.html" %}
+            {% endfor %}
           </div>
 
           <div class="white-space-50"></div>

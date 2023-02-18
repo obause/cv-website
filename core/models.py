@@ -36,14 +36,14 @@ class Contact(models.Model):
 class Education(models.Model):
     title = models.CharField(max_length=100)
     institute = models.CharField(max_length=100)
-    institute_url = models.URLField()
+    institute_url = models.URLField(blank=True, null=True)
     course_of_study = models.CharField(max_length=50)
     degree = models.CharField(max_length=50)
-    final_grade = models.CharField(max_length=10)
+    final_grade = models.CharField(max_length=10, blank=True, null=True)
     start_date = models.DateField()
-    end_date = models.DateField()
-    major_field = models.CharField(max_length=100)
-    description = models.TextField(max_length=2000, blank=True)
+    end_date = models.DateField(blank=True, null=True)
+    major_field = models.CharField(max_length=50, blank=True, null=True)
+    description = models.TextField(max_length=2000, blank=True, null=True)
     is_current = models.BooleanField(default=False)
     contact = models.ForeignKey(
         Contact, on_delete=models.CASCADE, related_name="education"
@@ -81,6 +81,28 @@ class Interests(models.Model):
     contact = models.ForeignKey(
         Contact, on_delete=models.CASCADE, related_name="interests"
     )
+
+    def __str__(self):
+        return self.title
+
+
+class WorkExperience(models.Model):
+    title = models.CharField(max_length=100)
+    company = models.CharField(max_length=100)
+    company_url = models.URLField(blank=True, null=True)
+    start_date = models.DateField()
+    end_date = models.DateField(blank=True, null=True)
+    description = models.TextField(max_length=2000, blank=True, null=True)
+    is_current = models.BooleanField(default=False)
+    contact = models.ForeignKey(
+        Contact, on_delete=models.CASCADE, related_name="experience"
+    )
+
+    def start_year(self):
+        return self.start_date.year
+
+    def end_year(self):
+        return self.end_date.year
 
     def __str__(self):
         return self.title

@@ -1,0 +1,21 @@
+<div class="timeline-item clearfix">
+    <div class="left-part">
+      <h5 class="item-period">
+        {{ item.start_date | date:"Y" }} -
+        {% if item.end_date %}
+        {{ item.end_date | date:"Y" }}
+        {% else %}
+        Present
+        {% endif %}
+      </h5>
+      <span class="item-company">{{ item.institute }}</span>
+    </div>
+    <div class="divider"></div>
+    <div class="right-part">
+      <h4 class="item-title">{{ item.title }}</h4>
+      {% if item.major_field %}
+      <div class="subtitle">Major field: <span>{{ item.major_field }}</span></div>
+      {% endif %}
+      <p>{{ item.description }}</p>
+    </div>
+  </div>
