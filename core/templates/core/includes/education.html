@@ -9,6 +9,9 @@
         {% endif %}
       </h5>
       <span class="item-company">{{ item.institute }}</span>
+      {% if item.final_grade %}
+      <span class="item-company">Grade: {{ item.final_grade }}</span>
+      {% endif %}
     </div>
     <div class="divider"></div>
     <div class="right-part">

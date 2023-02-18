@@ -1,0 +1,12 @@
+
+  <div class="skills-info skills-second-style">
+    {% for skill in data.skills %}
+    <div class="skill clearfix">
+      <h4>{{ skill.name }}</h4>
+      <div class="skill-value">{{ skill.percentage }}</div>
+    </div>
+    <div class="skill-container skill-{{ skill.percentage }}">
+      <div class="skill-percentage"></div>
+    </div>
+    {% endfor %}
+  </div>

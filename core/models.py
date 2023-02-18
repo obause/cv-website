@@ -1,9 +1,15 @@
 import datetime
 from django.db import models
 
-GENDER_TYPES = (
-    ("F", "Female"),
-    ("M", "Male"),
+GENDER_TYPES = (("F", "Female"), ("M", "Male"))
+
+SKILL_CATEGORY = (
+    ("Technical", "Technical"),
+    ("Soft", "Soft"),
+    ("Other", "Other"),
+    ("Languages", "Languages"),
+    ("Tools", "Tools"),
+    ("Frameworks", "Frameworks"),
 )
 
 
@@ -22,6 +28,7 @@ class Contact(models.Model):
     profile_image = models.ImageField(upload_to="images", blank=True)
     description = models.TextField(max_length=2000, blank=True)
     slogan = models.CharField(max_length=100, blank=True)
+    skills = models.ManyToManyField("Skill", blank=True)
 
     def full_name(self):
         return f"{self.forename} {self.lastname}"
@@ -45,9 +52,7 @@ class Education(models.Model):
     major_field = models.CharField(max_length=50, blank=True, null=True)
     description = models.TextField(max_length=2000, blank=True, null=True)
     is_current = models.BooleanField(default=False)
-    contact = models.ForeignKey(
-        Contact, on_delete=models.CASCADE, related_name="education"
-    )
+    contact = models.ForeignKey(Contact, on_delete=models.CASCADE, related_name="education")
 
     def start_year(self):
         return self.start_date.year
@@ -78,9 +83,7 @@ class Interests(models.Model):
     title = models.CharField(max_length=100)
     icon = models.CharField(max_length=100)
     description = models.TextField(max_length=2000, blank=True)
-    contact = models.ForeignKey(
-        Contact, on_delete=models.CASCADE, related_name="interests"
-    )
+    contact = models.ForeignKey(Contact, on_delete=models.CASCADE, related_name="interests")
 
     def __str__(self):
         return self.title
@@ -94,9 +97,7 @@ class WorkExperience(models.Model):
     end_date = models.DateField(blank=True, null=True)
     description = models.TextField(max_length=2000, blank=True, null=True)
     is_current = models.BooleanField(default=False)
-    contact = models.ForeignKey(
-        Contact, on_delete=models.CASCADE, related_name="experience"
-    )
+    contact = models.ForeignKey(Contact, on_delete=models.CASCADE, related_name="experience")
 
     def start_year(self):
         return self.start_date.year
@@ -106,3 +107,26 @@ class WorkExperience(models.Model):
 
     def __str__(self):
         return self.title
+
+
+class Skill(models.Model):
+    name = models.CharField(max_length=100)
+    category = models.ForeignKey(
+        "SkillCategory",
+        on_delete=models.CASCADE,
+        related_name="skills",
+        blank=True,
+        null=True
+    )
+    percentage = models.IntegerField(blank=True, null=True)
+
+    def __str__(self):
+        return self.name
+
+
+class SkillCategory(models.Model):
+    name = models.CharField(max_length=100)
+    is_percentage = models.BooleanField(default=False)
+
+    def __str__(self):
+        return self.name

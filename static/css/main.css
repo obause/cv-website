@@ -1255,6 +1255,14 @@ textarea.form-control, textarea.form-control:focus {
   line-height: 1.4em;
 }
 
+.timeline-second-style .item-period-center {
+  color: #aaa;
+  margin: 3px 0;
+  font-size: 14px;
+  line-height: 1.4em;
+  text-align: center;
+}
+
 .timeline-second-style .item-company {
   display: block;
   margin: 0 0 4px;
@@ -1334,40 +1342,88 @@ textarea.form-control, textarea.form-control:focus {
 }
 
 /* --- Skills Values --- */
-.skills-second-style .skill-container.skill-1 .skill-percentage {
-  width: 95%;
-}
-
-.skills-second-style .skill-container.skill-2 .skill-percentage {
-  width: 65%;
-}
-
-.skills-second-style .skill-container.skill-3 .skill-percentage {
-  width: 80%;
-}
-
-.skills-second-style .skill-container.skill-4 .skill-percentage {
-  width: 90%;
-}
-
-.skills-second-style .skill-container.skill-5 .skill-percentage {
-  width: 95%;
-}
-
-.skills-second-style .skill-container.skill-6 .skill-percentage {
-  width: 85%;
-}
-
-.skills-second-style .skill-container.skill-7 .skill-percentage {
+.skills-second-style .skill-container.skill-100 .skill-percentage {
   width: 100%;
 }
 
-.skills-second-style .skill-container.skill-8 .skill-percentage {
+.skills-second-style .skill-container.skill-95 .skill-percentage {
+  width: 95%;
+}
+
+.skills-second-style .skill-container.skill-90 .skill-percentage {
+  width: 90%;
+}
+
+.skills-second-style .skill-container.skill-85 .skill-percentage {
+  width: 85%;
+}
+
+.skills-second-style .skill-container.skill-80 .skill-percentage {
+  width: 80%;
+}
+
+.skills-second-style .skill-container.skill-75 .skill-percentage {
   width: 75%;
 }
 
-.skills-second-style .skill-container.skill-9 .skill-percentage {
-  width: 90%;
+.skills-second-style .skill-container.skill-70 .skill-percentage {
+  width: 70%;
+}
+
+.skills-second-style .skill-container.skill-65 .skill-percentage {
+  width: 65%;
+}
+
+.skills-second-style .skill-container.skill-60 .skill-percentage {
+  width: 60%;
+}
+
+.skills-second-style .skill-container.skill-55 .skill-percentage {
+  width: 55%;
+}
+
+.skills-second-style .skill-container.skill-50 .skill-percentage {
+  width: 50%;
+}
+
+.skills-second-style .skill-container.skill-45 .skill-percentage {
+  width: 45%;
+}
+
+.skills-second-style .skill-container.skill-40 .skill-percentage {
+  width: 40%;
+}
+
+.skills-second-style .skill-container.skill-35 .skill-percentage {
+  width: 35%;
+}
+
+.skills-second-style .skill-container.skill-30 .skill-percentage {
+  width: 30%;
+}
+
+.skills-second-style .skill-container.skill-25 .skill-percentage {
+  width: 25%;
+}
+
+.skills-second-style .skill-container.skill-20 .skill-percentage {
+  width: 20%;
+}
+
+.skills-second-style .skill-container.skill-15 .skill-percentage {
+  width: 15%;
+}
+
+.skills-second-style .skill-container.skill-10 .skill-percentage {
+  width: 10%;
+}
+
+.skills-second-style .skill-container.skill-5 .skill-percentage {
+  width: 5%;
+}
+
+.skills-second-style .skill-container.skill-0 .skill-percentage {
+  width: 0%;
 }
 
 /* --- End of Skills Values --- */

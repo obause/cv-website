@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.template import RequestContext
 
-from .models import Contact, Interests
+from .models import Contact, Interests, WorkExperience
 
 
 def home(request):
@@ -30,7 +30,22 @@ def about(request):
 def resume(request):
     contact = Contact.objects.first()
     education_items = contact.education.all().order_by("-start_date")
-    return render(request, "core/resume.html", {"education_items": education_items})
+    work_experience_items = contact.experience.all().order_by("-start_date")
+    skills = contact.skills.all()
+
+    skills_by_category = {}
+    for skill in skills:
+        if skill.category.name not in skills_by_category:
+            skills_by_category[skill.category.name] = {"is_percentage": skill.category.is_percentage, "skills": []}
+        skills_by_category[skill.category.name]['skills'].append(skill)
+
+    context = {
+        "education_items": education_items,
+        "work_experience_items": work_experience_items,
+        "skills_by_category": skills_by_category
+    }
+
+    return render(request, "core/resume.html", context)
 
 
 def portfolio(request):

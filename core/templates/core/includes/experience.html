@@ -1,0 +1,18 @@
+<div class="timeline-item clearfix">
+    <div class="left-part">
+      <h5 class="item-period">
+        {{ item.start_date | date:"M Y" }} <br> - <br>
+        {% if item.end_date %}
+        {{ item.end_date | date:"M Y" }}
+        {% else %}
+        Present
+        {% endif %}
+      </h5>
+      <span class="item-company">{{ item.company }}</span>
+    </div>
+    <div class="divider"></div>
+    <div class="right-part">
+      <h4 class="item-title">{{ item.title }}</h4>
+      <p>{{ item.description }}</p>
+    </div>
+  </div>
