@@ -44,6 +44,7 @@ class Education(models.Model):
     end_date = models.DateField()
     major_field = models.CharField(max_length=100)
     description = models.TextField(max_length=2000, blank=True)
+    is_current = models.BooleanField(default=False)
     contact = models.ForeignKey(
         Contact, on_delete=models.CASCADE, related_name="education"
     )
@@ -71,3 +72,15 @@ class FunFact(models.Model):
     title = models.CharField(max_length=100)
     value = models.IntegerField()
     icon = models.CharField(max_length=100)
+
+
+class Interests(models.Model):
+    title = models.CharField(max_length=100)
+    icon = models.CharField(max_length=100)
+    description = models.TextField(max_length=2000, blank=True)
+    contact = models.ForeignKey(
+        Contact, on_delete=models.CASCADE, related_name="interests"
+    )
+
+    def __str__(self):
+        return self.title
