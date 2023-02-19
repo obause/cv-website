@@ -31,18 +31,28 @@ def resume(request):
     contact = Contact.objects.first()
     education_items = contact.education.all().order_by("-start_date")
     work_experience_items = contact.experience.all().order_by("-start_date")
+    certificates = contact.certificates.all()
     skills = contact.skills.all()
-    print(skills)
+
     skills_by_category = {}
     for skill in skills:
         if skill.category.name not in skills_by_category:
             skills_by_category[skill.category.name] = {"is_percentage": skill.category.is_percentage, "skills": []}
         skills_by_category[skill.category.name]['skills'].append(skill)
 
+    # Order skills by percentage in every category
+    # for category in skills_by_category:
+    #     skills_by_category[category]['skills'] = sorted(
+    #         skills_by_category[category]['skills'],
+    #         key=lambda x: (x is None, x.percentage),
+    #         reverse=True
+    #     )
+
     context = {
         "education_items": education_items,
         "work_experience_items": work_experience_items,
-        "skills_by_category": skills_by_category
+        "skills_by_category": skills_by_category,
+        "certificates": certificates
     }
 
     print(skills_by_category)
