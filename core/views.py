@@ -23,7 +23,10 @@ def about(request):
             row_content = []
     if len(row_content) > 0:
         context['interest_rows'].append(row_content)
-    print(context)
+
+    fun_facts = Contact.objects.first().fun_facts.all()
+    context['fun_facts'] = fun_facts
+
     return render(request, "core/about.html", context)
 
 

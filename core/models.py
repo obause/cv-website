@@ -77,6 +77,7 @@ class FunFact(models.Model):
     title = models.CharField(max_length=100)
     value = models.IntegerField()
     icon = models.CharField(max_length=100)
+    contact = models.ForeignKey(Contact, on_delete=models.CASCADE, related_name="fun_facts", blank=True, null=True)
 
 
 class Interests(models.Model):
