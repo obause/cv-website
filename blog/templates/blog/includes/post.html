@@ -1,0 +1,21 @@
+<div class="item post-1">
+    <div class="blog-card">
+      <div class="media-block">
+
+        <div class="category">
+          <a href="#" title="View all posts in {{ post.category }}">{{ post.category }}</a>
+        </div>
+
+        <a href="{% url "post-detail-page" slug=post.slug %}">
+          <img src="{{ post.image.url }}" class="size-blog-masonry-image-two-c" alt="{{ post.title }}" title="" />
+          <div class="mask"></div>
+        </a>
+      </div>
+      <div class="post-info">
+        <div class="post-date">{{ post.date }}</div>
+        <a href="{% url "post-detail-page" slug=post.slug %}">
+          <h4 class="blog-item-title">{{ post.title }}</h4>
+        </a>
+      </div>
+    </div>
+  </div>
