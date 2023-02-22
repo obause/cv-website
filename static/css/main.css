@@ -2995,3 +2995,54 @@ blockquote {
     font-size: 18px;
   }
 }
+
+
+/*====================*/
+/* Custom */
+/*====================*/
+
+.console-underscore {
+  display:inline-block;
+ position:relative;
+ top:-0.14em;
+ left:10px;
+}
+
+
+
+.home-photo {
+  display: block;
+  width: 100%;
+  padding-bottom: calc(100% - 36px);
+  background-color: #fff;
+  border-radius: 1000px;
+  border: 18px solid #fff;
+  overflow: hidden;
+  -webkit-box-shadow: 0 0 25px 0 rgb(0 0 0 / 10%);
+  -moz-box-shadow: 0 0 25px 0 rgba(0,0,0,.1);
+  box-shadow: 0 0 25px 0 rgb(0 0 0 / 10%);
+}
+
+.home-photo, .home-bgvideo {
+  position: relative;
+  background-color: #444;
+  border: 18px solid #444;
+  -webkit-box-shadow: 0 0 25px 0 rgb(0 0 0 / 80%);
+  -moz-box-shadow: 0 0 25px 0 rgba(0,0,0,.8);
+  box-shadow: 0 0 25px 0 rgb(0 0 0 / 80%);
+}
+
+.home-photo .hp-inner {
+  background-image: url(../images/main_photo.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: auto;
+  display: block;
+  position: absolute;
+  top: -18px;
+  bottom: -18px;
+  width: auto;
+  left: -18px;
+  right: -18px;
+}

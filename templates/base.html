@@ -19,6 +19,7 @@
     <link rel="stylesheet" href="{% static 'css/owl.carousel.css' %}" type="text/css">
     <link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}" type="text/css">
     <link rel="stylesheet" href="{% static 'css/main.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/glitch.css' %}" type="text/css">
     {% block css_files %}{% endblock %}
   </head>
 
@@ -127,6 +128,8 @@
       </div>
     </div>
 
+
+
     <script src="{% static 'js/jquery.min.js' %}"></script>
     <!--
     <script src="{% static 'js/modernizr.custom.js' %}"></script>-->
@@ -145,5 +148,6 @@
     <script src="{% static 'js/jquery.googlemap.js' %}"></script>
     <script src="{% static 'js/validator.js' %}"></script>
     <script src="{% static 'js/main.js' %}"></script>
+    {% block js_files %}{% endblock %}
   </body>
 </html>

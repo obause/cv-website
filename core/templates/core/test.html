@@ -1,0 +1,43 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Testseite</title>
+    <!--<link rel="stylesheet" href="{% static 'css/glitch.css' %}" type="text/css">-->
+    {% block css_files %}{% endblock %}
+    <style>
+        @import 'https://fonts.googleapis.com/css?family=Roboto+Mono:100';
+html,
+body {
+  font-family: 'Roboto Mono', monospace;
+  background: #212121;
+  height: 100%;
+}
+.container {
+  height: 100%;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+.text {
+  font-weight: 100;
+  font-size: 28px;
+  color: #fafafa;
+}
+.dud {
+  color: #757575;
+}
+
+    </style>
+  </head>
+
+  <body>
+    <div class="test" id="test">xxx</div>
+    <div class="container">
+        <div class="text" id="text-scramble">xxx</div>
+      </div>
+  <script src="{% static 'js/text-scramble.js' %}"></script>
+  </body>
+</html>

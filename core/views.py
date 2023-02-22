@@ -4,6 +4,10 @@ from django.template import RequestContext
 from .models import Contact, Interests, WorkExperience
 
 
+def test(request):
+    return render(request, "core/test.html")
+
+
 def home(request):
     # contact = Contact.objects.first()
 

@@ -11,7 +11,7 @@
     function portfolio_init() {
         var portfolio_grid = $('.portfolio-grid'),
             portfolio_filter = $('.portfolio-filters');
-            
+
         if (portfolio_grid) {
 
             portfolio_grid.shuffle({
@@ -128,7 +128,7 @@
                 pageY = e.pageY - ($(document).height() / 2),
                 newvalueX = width * pageX * -1,
                 newvalueY = height * pageY * -1,
-                elements = $('.lm-animated-bg');
+                elements = $('.home-photo .hp-inner:not(.without-move), .lm-animated-bg');
 
             elements.addClass('transition');
             elements.css({

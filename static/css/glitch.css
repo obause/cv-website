@@ -1,0 +1,179 @@
+
+.wrapper {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.wrapper h1.glitch {
+    color: white;
+    font-family: sans-serif;
+    font-weight: 800;
+    position: relative;
+    font-size: 100px;
+    padding: 30px;
+  }
+  .wrapper h1.glitch::before, .wrapper h1.glitch::after {
+    padding: 30px;
+    color: white;
+    content: "Ole Bause";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #222;
+    overflow: hidden;
+    top: 0;
+  }
+  .wrapper h1.glitch::before {
+    left: 3px;
+    text-shadow: -2px 0 red;
+    animation-name: glitch-animation-1;
+    animation-duration: 2s;
+    animation-timing-function: linear;
+    animation-delay: 0s;
+    animation-iteration-count: infinite;
+    animation-direction: reverse-alternate;
+  }
+  .wrapper h1.glitch::after {
+    left: -3px;
+    text-shadow: -2px 0 blue;
+    animation-name: glitch-animation-2;
+    animation-duration: 2s;
+    animation-timing-function: linear;
+    animation-delay: 0s;
+    animation-iteration-count: infinite;
+    animation-direction: reverse-alternate;
+  }
+
+  @keyframes glitch-animation-1 {
+    0% {
+      clip: rect(7px, 600px, 88px, 30px);
+    }
+    5% {
+      clip: rect(126px, 600px, 127px, 30px);
+    }
+    10% {
+      clip: rect(147px, 600px, 38px, 30px);
+    }
+    15% {
+      clip: rect(141px, 600px, 52px, 30px);
+    }
+    20% {
+      clip: rect(49px, 600px, 118px, 30px);
+    }
+    25% {
+      clip: rect(111px, 600px, 104px, 30px);
+    }
+    30% {
+      clip: rect(9px, 600px, 1px, 30px);
+    }
+    35% {
+      clip: rect(84px, 600px, 102px, 30px);
+    }
+    40% {
+      clip: rect(48px, 600px, 71px, 30px);
+    }
+    45% {
+      clip: rect(107px, 600px, 29px, 30px);
+    }
+    50% {
+      clip: rect(127px, 600px, 72px, 30px);
+    }
+    55% {
+      clip: rect(52px, 600px, 148px, 30px);
+    }
+    60% {
+      clip: rect(105px, 600px, 147px, 30px);
+    }
+    65% {
+      clip: rect(135px, 600px, 17px, 30px);
+    }
+    70% {
+      clip: rect(51px, 600px, 96px, 30px);
+    }
+    75% {
+      clip: rect(130px, 600px, 9px, 30px);
+    }
+    80% {
+      clip: rect(81px, 600px, 99px, 30px);
+    }
+    85% {
+      clip: rect(129px, 600px, 78px, 30px);
+    }
+    90% {
+      clip: rect(77px, 600px, 123px, 30px);
+    }
+    95% {
+      clip: rect(138px, 600px, 15px, 30px);
+    }
+    100% {
+      clip: rect(17px, 600px, 27px, 30px);
+    }
+  }
+  @keyframes glitch-animation-2 {
+    0% {
+      clip: rect(67px, 600px, 106px, 30px);
+    }
+    5% {
+      clip: rect(11px, 600px, 135px, 30px);
+    }
+    10% {
+      clip: rect(48px, 600px, 38px, 30px);
+    }
+    15% {
+      clip: rect(25px, 600px, 6px, 30px);
+    }
+    20% {
+      clip: rect(79px, 600px, 132px, 30px);
+    }
+    25% {
+      clip: rect(59px, 600px, 122px, 30px);
+    }
+    30% {
+      clip: rect(41px, 600px, 51px, 30px);
+    }
+    35% {
+      clip: rect(100px, 600px, 76px, 30px);
+    }
+    40% {
+      clip: rect(49px, 600px, 12px, 30px);
+    }
+    45% {
+      clip: rect(18px, 600px, 130px, 30px);
+    }
+    50% {
+      clip: rect(89px, 600px, 96px, 30px);
+    }
+    55% {
+      clip: rect(64px, 600px, 87px, 30px);
+    }
+    60% {
+      clip: rect(90px, 600px, 150px, 30px);
+    }
+    65% {
+      clip: rect(145px, 600px, 70px, 30px);
+    }
+    70% {
+      clip: rect(94px, 600px, 10px, 30px);
+    }
+    75% {
+      clip: rect(50px, 600px, 11px, 30px);
+    }
+    80% {
+      clip: rect(64px, 600px, 133px, 30px);
+    }
+    85% {
+      clip: rect(41px, 600px, 41px, 30px);
+    }
+    90% {
+      clip: rect(12px, 600px, 92px, 30px);
+    }
+    95% {
+      clip: rect(65px, 600px, 83px, 30px);
+    }
+    100% {
+      clip: rect(116px, 600px, 132px, 30px);
+    }
+  }
