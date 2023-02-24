@@ -6,7 +6,7 @@
     "editor.suggestSelection": "first",
     "editor.formatOnSave": false,
     "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "terminal.integrated.defaultProfile.windows": "Command Prompt",
+    "terminal.integrated.defaultProfile.windows": "PowerShell",
     "explorer.compactFolders": false,
     // Explorer settings
     "explorer.confirmDragAndDrop": false,

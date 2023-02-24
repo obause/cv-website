@@ -1,60 +1,65 @@
 {% extends 'base.html' %}
 {% load static %}
-
-{% block title %}{{ name }} | Home{% endblock title %}
-
+{% block title %}{{ name }} | Home{%endblock title %}
 
 {% block content-area %}
-
 <!-- Home Subpage -->
 <section data-id="home" class="animated-section start-page">
   <div class="section-content vcentered">
-      <div class="row">
-        <div class="col-sm-12 col-md-5 col-lg-5">
-          <div class="home-photo">
-              <div class="hp-inner" style="background-image: url(&quot;{% static 'img/main_photo.jpg' %}&quot;); background-position: calc(50% + 4.5684px) calc(50% + 5.28689px);"></div>
-          </div>
-          <div class="hp-dots"></div>
+    <div class="row justify-content-center">
+      <div class="col-sm-12 col-md-6 col-lg-4">
+        <div class="home-photo">
+          <div
+            class="hp-inner"
+            style="
+              background-image: url('{% static 'img/main_photo.jpg' %}');
+              background-position: calc(50% + 4.5684px) calc(50% + 5.28689px);
+            "
+          ></div>
         </div>
+        <div class="hp-dots"></div>
       </div>
-      <div class="row">
-        <div class="col-sm-12 col-md-12 col-lg-12">
-
-          <div class="title-block">
-            <h3>Hi! My name is</h3>
-            <!--<span id='console-text'></span><div class='console-underscore' id='console'>&#95;</div>-->
-            <div class="wrapper">
-              <h1 class="glitch">{{ name }}</h1>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 col-md-12 col-lg-12">
+        <div class="title-block">
+          <h3>Hi! My name is</h3>
+          <!--<span id='console-text'></span><div class='console-underscore' id='console'>&#95;</div>-->
+          <div class="wrapper">
+            <h1 class="glitch">{{ name }}</h1>
+          </div>
+          <div class="owl-carousel text-rotation">
+            <div class="item">
+              <div class="sp-subtitle" id="text-scramble"></div>
             </div>
-            <div class="owl-carousel text-rotation">
+            <!--
               <div class="item">
                 <div class="sp-subtitle" id="text-scramble"></div>
-              </div>
-              <!--
-              <div class="item">
-                <div class="sp-subtitle" id="text-scramble"></div>
-              -->
-              </div>
-            </div>
+
+              </div>-->
           </div>
         </div>
+        <div class="white-space-50"></div>
+        <a href="{% url 'about' %}" class="btn btn-secondary">> About me</a>
       </div>
-
+    </div>
   </div>
 </section>
 <!-- End of Home Subpage -->
 
 {% endblock content-area %}
-{% block js_files %}
-    <script>
-      const phrases = [
-      'Computer Science Student',
-      'Data Warehouse Developer',
-      'Data Analyst',
-      'Data Scientist',
-      'Web Developer',];
 
-      const console_text = ['Hi! My name is']
-    </script>
-    <script src="{% static 'js/text-effects.js' %}"></script>
+{% block js_files %}
+<script>
+  const phrases = [
+    "Computer Science Student",
+    "Data Warehouse Developer",
+    "Data Analyst",
+    "Data Scientist",
+    "Web Developer",
+  ];
+
+  const console_text = ["Hi! My name is"];
+</script>
+<script src="{% static 'js/text-effects.js' %}"></script>
 {% endblock %}
