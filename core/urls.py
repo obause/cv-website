@@ -8,6 +8,6 @@ urlpatterns = [
     path("resume", views.resume, name="resume"),
     path("portfolio", views.portfolio, name="portfolio"),
     # path("blog", views.blog, name="blog"),
-    path("contact", views.contact, name="contact"),
+    path("contact", views.ContactView.as_view(), name="contact"),
     path("test", views.test, name="test")
 ]

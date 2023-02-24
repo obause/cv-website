@@ -1,7 +1,11 @@
 from django.shortcuts import render
 from django.template import RequestContext
+from django.views import View
+from django.http import HttpResponseRedirect
+from django.urls import reverse
 
 from .models import Contact, Interests, WorkExperience
+from .forms import ContactForm
 
 
 def test(request):
@@ -71,8 +75,26 @@ def portfolio(request):
     return render(request, "core/portfolio.html")
 
 
-def blog(request):
-    return render(request, "core/blog.html")
+class ContactView(View):
+    def get(self, request, success=None):
+        context = {
+            "form": ContactForm(),
+            "success": success
+        }
+        return render(request, "core/contact.html", context)
+
+    def post(self, request):
+        contact_form = ContactForm(request.POST)
+        if contact_form.is_valid():
+            comment = contact_form.save(commit=False)
+            comment.save()
+            success = True
+            return HttpResponseRedirect(reverse("contact", args=[success]))
+
+        context = {
+            "form": contact_form
+        }
+        return render(request, "core/contact.html", context)
 
 
 def contact(request):
