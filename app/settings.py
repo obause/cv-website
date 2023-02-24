@@ -34,6 +34,7 @@ ALLOWED_HOSTS = [
 # Application definition
 
 INSTALLED_APPS = [
+    'pdfgen'
     'blog',
     'core',
     'django.contrib.admin',

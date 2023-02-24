@@ -61,102 +61,12 @@
           </div>
         </div>
       </div>
-      <!--<div class="row">
-      {% for row in interest_rows %}
-        <div class="col-xs-12 col-sm-6">
-          <div class="col-inner">
-            <div class="info-list-w-icon">
-              {% for interest in row %}
-              {% include "core/includes/interests.html" %}
-              {% endfor %}
-
-            </div>
-          </div>
-        </div>
-
+      <div class="row">
+      {% for interest in interests %}
+        {% include "core/includes/interests.html" %}
       {% endfor %}
-      </div>-->
+    </div>
       <!-- End of Services -->
-      <div class="row">
-        <div class="col-sm-12 col-md-6 col-lg-6">
-          <div class="card-container">
-            <div class="card">
-              <div class="face face1">
-                  <div class="content">
-                      <img src="{% static 'img/icons/server.png' %}">
-                      <h3>Data<br>Warehousing</h3>
-                  </div>
-              </div>
-              <div class="face face2">
-                  <div class="content">
-                      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas cum cumque minus iste veritatis provident at.</p>
-                          <a href="#">Read More</a>
-                  </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-sm-12 col-md-6 col-lg-6">
-          <div class="card-container">
-            <div class="card">
-              <div class="face face1">
-                  <div class="content">
-                      <img src="{% static 'img/icons/daten.png' %}">
-                      <h3>Data<br>Engineering</h3>
-                  </div>
-              </div>
-              <div class="face face2">
-                  <div class="content">
-                      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas cum cumque minus iste veritatis provident at.</p>
-                          <a href="#">Read More</a>
-                  </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col-sm-12 col-md-6 col-lg-6">
-          <div class="card-container">
-            <div class="card">
-              <div class="face face1">
-                  <div class="content">
-                      <img src="{% static 'img/icons/chip.png' %}">
-                      <h3>Data<br>Science</h3>
-                  </div>
-              </div>
-              <div class="face face2">
-                  <div class="content">
-                      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas cum cumque minus iste veritatis provident at.</p>
-                          <a href="#">Read More</a>
-                  </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-sm-12 col-md-6 col-lg-6">
-          <div class="card-container">
-            <div class="card">
-              <div class="face face1">
-                  <div class="content">
-                      <img src="{% static 'img/icons/cloud-netzwerk.png' %}">
-                      <h3>Cloud<br>Computing</h3>
-                  </div>
-              </div>
-              <div class="face face2">
-                  <div class="content">
-                      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas cum cumque minus iste veritatis provident at.</p>
-                          <a href="#">Read More</a>
-                  </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
 
       <div class="white-space-30"></div>
       <div class="row">

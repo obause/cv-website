@@ -25,7 +25,7 @@ class Contact(models.Model):
     nationality = models.CharField(max_length=100)
     social_media = models.ManyToManyField("SocialMedia", blank=True)
     website = models.CharField(max_length=100, blank=True)
-    profile_image = models.ImageField(upload_to="images", blank=True)
+    profile_image = models.ImageField(upload_to="images/profile_pics", blank=True)
     description = models.TextField(max_length=2000, blank=True)
     slogan = models.CharField(max_length=100, blank=True)
     skills = models.ManyToManyField("Skill", blank=True)
@@ -44,6 +44,7 @@ class Education(models.Model):
     title = models.CharField(max_length=100)
     institute = models.CharField(max_length=100)
     institute_url = models.URLField(blank=True, null=True)
+    institute_logo = models.ImageField(upload_to="images/logos", blank=True, null=True)
     course_of_study = models.CharField(max_length=50)
     degree = models.CharField(max_length=50)
     final_grade = models.CharField(max_length=10, blank=True, null=True)
@@ -85,6 +86,7 @@ class Interests(models.Model):
     icon = models.CharField(max_length=100)
     description = models.TextField(max_length=2000, blank=True)
     contact = models.ForeignKey(Contact, on_delete=models.CASCADE, related_name="interests")
+    image = models.ImageField(upload_to="images/icons", blank=True, null=True)
 
     def __str__(self):
         return self.title
@@ -94,6 +96,7 @@ class WorkExperience(models.Model):
     title = models.CharField(max_length=100)
     company = models.CharField(max_length=100)
     company_url = models.URLField(blank=True, null=True)
+    company_logo = models.ImageField(upload_to="images/logos", blank=True, null=True)
     start_date = models.DateField()
     end_date = models.DateField(blank=True, null=True)
     description = models.TextField(max_length=2000, blank=True, null=True)
@@ -140,7 +143,7 @@ class Certificate(models.Model):
     expiration_date = models.DateField(blank=True, null=True)
     credential_id = models.CharField(max_length=100, blank=True, null=True)
     credential_url = models.URLField(blank=True, null=True)
-    credential_image = models.ImageField(upload_to="images", blank=True, null=True)
+    credential_image = models.ImageField(upload_to="images/certificates", blank=True, null=True)
     contact = models.ForeignKey(Contact, on_delete=models.CASCADE, related_name="certificates")
 
     def __str__(self):

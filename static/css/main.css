@@ -3126,7 +3126,7 @@ blockquote {
 }
 
 .card-container .card:hover .face.face1{
-  background: #ff0057;
+  background: #04b4e0;
   transform: translateY(0);
 }
 
@@ -3141,6 +3141,9 @@ blockquote {
 
 .card-container .card .face.face1 .content img{
   max-width: 100px;
+  margin-left: auto;
+  margin-right: auto;
+  filter: invert(100%);
 }
 
 .card-container .card .face.face1 .content h3{
@@ -3188,6 +3191,7 @@ blockquote {
 }
 
 
+/* Contact Form */
 .messages {
   display: flex;
   flex-direction: column;

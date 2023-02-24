@@ -19,18 +19,22 @@ def home(request):
 
 
 def about(request):
-    context = {"interest_rows": []}
     all_interests = Interests.objects.all()
+    # context = {"interest_rows": []}
     # row = 0
-    row_content = []
-    for i, interest in enumerate(all_interests):
-        print(i, interest)
-        row_content.append(interest)
-        if i % 2 == 1:
-            context['interest_rows'].append(row_content)
-            row_content = []
-    if len(row_content) > 0:
-        context['interest_rows'].append(row_content)
+    # row_content = []
+    # for i, interest in enumerate(all_interests):
+    #     print(i, interest)
+    #     row_content.append(interest)
+    #     if i % 2 == 1:
+    #         context['interest_rows'].append(row_content)
+    #         row_content = []
+    # if len(row_content) > 0:
+    #     context['interest_rows'].append(row_content)
+
+    context = {
+        "interests": all_interests
+    }
 
     fun_facts = Contact.objects.first().fun_facts.all()
     context['fun_facts'] = fun_facts
@@ -97,5 +101,5 @@ class ContactView(View):
         return render(request, "core/contact.html", context)
 
 
-def contact(request):
-    return render(request, "core/contact.html")
+# def contact(request):
+#     return render(request, "core/contact.html")
