@@ -1,0 +1,132 @@
+.header-photo {
+    position: relative;
+    width: 180px;
+    margin: 0 auto 30px;
+    z-index: 1;
+  }
+
+  .header-photo img {
+    max-width: 100%;
+    background-color: #fff;
+    border: 3px solid #fff;
+    border-radius: 300px;
+  }
+
+  .header-photo-pdf img {
+    max-width: 100%;
+    background-color: #222;
+    border: 3px solid #222;
+    border-radius: 300px;
+  }
+
+  .header-photo:after {
+    position: absolute;
+    opacity: 0.3;
+    top: 7%;
+    left: 7%;
+    border-radius: 300px;
+    content: '';
+    height: calc(100% + 0px);
+    width: calc(100% + 0px);
+    background-image: -webkit-repeating-radial-gradient(center center, #fff, #fff 1px, transparent 0px, transparent 100%);
+    background-image: -moz-repeating-radial-gradient(center center, #fff, #fff 1px, transparent 0px, transparent 100%);
+    background-image: -ms-repeating-radial-gradient(center center, #fff, #fff 1px, transparent 0px, transparent 100%);
+    -webkit-background-size: 6px 6px;
+    -moz-background-size: 6px 6px;
+    background-size: 6px 6px;
+    z-index: -1;
+  }
+
+  .header-titles h2 {
+    font-size: 36px;
+    font-weight: 600;
+    color: #fff;
+    margin: 5px 0 7px;
+    line-height: 1.2em;
+  }
+
+  .header-titles h4 {
+    font-size: 18px;
+    font-weight: 300;
+    color: #fff;
+    margin: 5px 0;
+    line-height: 1.2em;
+  }
+
+  .header-titles-pdf h2 {
+    font-size: 42px;
+    font-weight: 600;
+    color: #000;
+    margin: 5px 0 7px;
+    line-height: 1.2em;
+  }
+
+  .header-titles-pdf h4 {
+    font-size: 18px;
+    font-weight: 300;
+    color: #000;
+    margin: 5px 0;
+    line-height: 1.2em;
+  }
+
+/* --- Social Links --- */
+.social-links-pdf {
+    margin-bottom: 20px;
+  }
+
+  .social-links-pdf ul {
+    list-style: none;
+    padding: 0;
+    text-align: center;
+  }
+
+  .social-links-pdf ul li {
+    display: inline-block;
+  }
+
+  .social-links-pdf ul li a {
+    color: #000;
+    border-radius: 20px;
+    font-size: 18px;
+    padding: 0;
+    height: 30px;
+    width: 30px;
+    line-height: 30px;
+    text-align: center;
+    opacity: .9;
+  }
+
+  .social-links-pdf ul li a i {
+    margin-right: 5px;
+    width: 30px;
+  }
+
+  .social-links-pdf ul li a span {
+    margin-right: 5px;
+    font-size: 15px;
+    font-family: 'Poppins', Helvetica, sans-serif;
+    line-height: 1.65em;
+    color: #555;
+  }
+
+  .social-links-pdf ul li a:hover {
+    opacity: 1;
+    background-color: rgba(255,255,255,.2);
+  }
+  /* --- End Social Links --- */
+
+
+  .section-content-pdf {
+    background-color: #fff;
+    padding: 20px;
+    position: relative;
+    height: auto;
+    width: 100%;
+    min-width: 100%;
+    min-height: 100%;
+    -webkit-transform: translate3d(0,0,0);
+    -o-transform: translate3d(0,0,0);
+    -moz-transform: translate3d(0,0,0);
+    transform: translate3d(0,0,0);
+    -ms-transform: none;
+  }
