@@ -5,6 +5,7 @@ from django.template import loader
 from core.models import Contact
 
 import pdfkit
+from wsgiref.util import FileWrapper
 
 
 # Create your views here.
@@ -32,7 +33,7 @@ def resume_pdf(request):
 
 # def resume_pdf(request):
 #     contact = Contact.objects.first()
-#     html = loader.render_to_string('pdfgen/resume_test.html', {'name': contact.forename})
+#     html = loader.render_to_string('pdfgen/resume_light.html', {'contact': contact})
 #     # options={
 #     #    'page-size': 'Letter',
 #     #    'encoding' : 'UTF-8',
@@ -41,8 +42,10 @@ def resume_pdf(request):
 #     print(html)
 
 #     config = pdfkit.configuration(wkhtmltopdf=r'C:\Program Files\wkhtmltopdf\bin\wkhtmltopdf.exe')
-#     pdf = pdfkit.from_string(html, "test_dj.pdf", configuration=config)
+#     pdf = pdfkit.from_string(html, False, configuration=config)
+#     print(f"PDF: {pdf}")
 #     # pdf = pdfkit.from_string("<h1>Test</h1>", "test.pdf", configuration=config)
+#     # response = HttpResponse(pdf, content_type='application/pdf')
 #     response = HttpResponse(pdf, content_type='application/pdf')
-#     response['Content-Disposition'] = 'attachment'
+#     response['Content-Disposition'] = 'attachment;filename="cv.pdf"'
 #     return response

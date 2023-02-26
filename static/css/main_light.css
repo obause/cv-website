@@ -606,7 +606,7 @@ input[type="submit"]:focus {
 }
 
 /* --- Custom ScrollBar Customization --- */
-.ps>.ps__scrollbar-y-rail {
+/*.ps>.ps__scrollbar-y-rail {
   margin-right: 10px;
   margin-top: 30px;
   margin-bottom: 30px;
@@ -629,7 +629,7 @@ input[type="submit"]:focus {
 .ps:hover.ps--in-scrolling.ps--y>.ps__scrollbar-y-rail>.ps__scrollbar-y,
 .ps.ps--in-scrolling.ps--y>.ps__scrollbar-y-rail>.ps__scrollbar-y {
     width: 8px;
-}
+}*/
 /* --- End Custom ScrollBar Customization --- */
 
 .page-title {
