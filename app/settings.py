@@ -12,13 +12,30 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 
 from pathlib import Path
 from os import getenv
+from django.core.exceptions import ImproperlyConfigured
+
+import json
+import os
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
+with open(os.path.join(BASE_DIR, 'secrets.json')) as secrets_file:
+    secrets = json.load(secrets_file)
+
+
+def get_secret(setting, secrets=secrets):
+    """Get secret setting or fail with ImproperlyConfigured"""
+    try:
+        return secrets[setting]
+    except KeyError:
+        os.environ.get(setting)
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
+
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-tj&2=&r#xe673i)9k3@1q00^ick!k1sk73#x3ssb*%y!@)s145'
@@ -34,9 +51,11 @@ ALLOWED_HOSTS = [
 # Application definition
 
 INSTALLED_APPS = [
+    'github',
     'pdfgen',
     'blog',
     'core',
+    'background_task',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -137,3 +156,6 @@ STATICFILES_DIRS = [
 
 MEDIA_ROOT = BASE_DIR / "uploads"
 MEDIA_URL = "/files/"
+
+GITHUB_ACCESS_TOKEN = get_secret("GITHUB_ACCESS_TOKEN")
+GITHUB_USER = get_secret("GITHUB_USER")

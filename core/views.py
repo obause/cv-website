@@ -6,9 +6,12 @@ from django.urls import reverse
 
 from .models import Contact, Interests, WorkExperience
 from .forms import ContactForm
+from app.tasks import demo_task
 
 
 def test(request):
+    demo_task("Hello world!", repeat=1, repeat_until=None)
+    print("test")
     return render(request, "core/test.html")
 
 
