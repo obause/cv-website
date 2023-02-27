@@ -59,13 +59,21 @@ async def get_stats(github_user):
 
 def github_test(request):
     github_user = GitHubUser.objects.first()
+    stats = github_user.stats
+    # languages = stats.language.objects.all()
     # stats = asyncio.run(get_stats(github_user))
     # context = {"stats": stats}
-    print(f"github_user: {github_user}")
+
+    # github_user.update_userstats()
+    context = {
+        "name": stats.name,
+        "stars": stats.stars,
+        "contributions": stats.contributions,
+        "repos": stats.repositories,
+        "forks": stats.forks,
+        "lines_changed": stats.get_loc_changed(),
+        "views": stats.page_views,
+    }
 
     stats = github_user.stats
-    print(f"stats: {stats.name}")
-
-    asyncio.run(github_user.update_userstats())
-    context = {"done": True}
     return render(request, "github/github.html", context)

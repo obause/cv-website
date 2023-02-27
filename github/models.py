@@ -23,7 +23,22 @@ class GitHubUser(models.Model):
     def __str__(self):
         return self.username
 
-    async def update_userstats(self):
+    def update_userstats(self):
+        data = asyncio.run(self.fetch_userstats())
+        print(f"data: {data}")
+        self.stats.update_stats(data)
+        for language, values in data['languages'].items():
+            print(f"language: {language}, values: {values}")
+            self.stats.language.update_or_create(
+                name=language, defaults={
+                    'size': values['size'],
+                    'occurences': values['occurrences'],
+                    'color': values['color'],
+                    'prop': values['prop']
+                }
+            )
+
+    async def fetch_userstats(self):
         print("update_userstats")
         access_token = self.access_token
         user = self.username
@@ -56,8 +71,19 @@ class GitHubUser(models.Model):
                 exclude_langs=excluded_langs,
                 ignore_forked_repos=ignore_forked_repos,
             )
-            print("Updating stats...")
-            await self.stats.update_stats(s)
+            data = {
+                "name": await s.name,
+                "stars": await s.stargazers,
+                "forks": await s.forks,
+                "contributions": await s.total_contributions,
+                "repositories": await s.repos,
+                "languages": await s.languages,
+                "languages_proportional": await s.languages_proportional,
+                "total_contributions": await s.total_contributions,
+                # "lines_changed": await s.lines_changed,
+                "views": await s.views,
+            }
+            return data
 
 
 class UserStats(models.Model):
@@ -71,20 +97,25 @@ class UserStats(models.Model):
     # loc_changed = models.IntegerField(blank=True, null=True)
     page_views = models.IntegerField(blank=True, null=True)
 
-    # def __str__(self):
-    #     return self.name
+    def __str__(self):
+        if self.name is None:
+            return "No name"
+        return self.name
 
-    async def update_stats(self, s):
-        self.name = await s.name
-        self.stars = await s.stargazers
-        self.forks = await s.forks
-        self.contributions = await s.total_contributions
-        self.repositories = len(await s.repos)
-        # self.loc_added = await s.lines_changed[0]
-        # self.loc_deleted = await s.lines_changed[1]
-        self.page_views = await s.views
+    def update_stats(self, s):
+        self.name = s['name'] if s['name'] is not None else self.name
+        self.stars = s.get("stars") if s.get("stars") is not None else self.stars
+        self.forks = s.get("forks") if s.get("forks") is not None else self.forks
+        self.contributions = s.get("contributions") if s.get("contributions") is not None else self.contributions
+        self.repositories = len(s.get("repositories")) if s.get("repositories") is not None else self.repositories
+        self.loc_added = s.get("lines_changed")[0] if s.get("lines_changed") is not None else self.loc_added
+        self.loc_deleted = s.get("lines_changed")[1] if s.get("lines_changed") is not None else self.loc_deleted
+        self.page_views = s.get("views") if s.get("views") is not None else self.page_views
         print("Saving stats...")
-        await sync_to_async(self.save())
+        self.save()
+
+    def get_loc_changed(self):
+        return self.loc_added + self.loc_deleted
 
 
 class Language(models.Model):
