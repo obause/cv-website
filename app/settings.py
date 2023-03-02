@@ -62,6 +62,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.humanize',
 ]
 
 MIDDLEWARE = [
@@ -159,3 +160,5 @@ MEDIA_URL = "/files/"
 
 GITHUB_ACCESS_TOKEN = get_secret("GITHUB_ACCESS_TOKEN")
 GITHUB_USER = get_secret("GITHUB_USER")
+
+CONTACT_PK = 1

@@ -3,10 +3,15 @@ from django.template import RequestContext
 from django.views import View
 from django.http import HttpResponseRedirect
 from django.urls import reverse
+from django.conf import settings
 
 from .models import Contact, Interests, WorkExperience
 from .forms import ContactForm
+from github.models import GitHubUser
+
 from app.tasks import demo_task
+
+CONTACT_PK = settings.CONTACT_PK
 
 
 def test(request):
@@ -22,7 +27,8 @@ def home(request):
 
 
 def about(request):
-    all_interests = Interests.objects.all()
+    contact = Contact.objects.get(pk=CONTACT_PK)
+    all_interests = contact.interests.all()
     # context = {"interest_rows": []}
     # row = 0
     # row_content = []
@@ -35,18 +41,36 @@ def about(request):
     # if len(row_content) > 0:
     #     context['interest_rows'].append(row_content)
 
-    context = {
-        "interests": all_interests
-    }
+    fun_facts = contact.fun_facts.all()
 
-    fun_facts = Contact.objects.first().fun_facts.all()
-    context['fun_facts'] = fun_facts
+    github_user = contact.github_user.get()
+    stats = github_user.stats
+
+    sorted_languages = stats.language.all().order_by("-size")[:6]
+    # sorted_languages = sorted(languages.items(), key=lambda x: x[1].size, reverse=True)
+    # print(sorted_languages)
+
+    context = {
+        "interests": all_interests,
+        "fun_facts": fun_facts,
+        "stats": {
+            "name": stats.name,
+            "stars": stats.stars,
+            "contributions": stats.contributions,
+            "repos": stats.repositories,
+            "forks": stats.forks,
+            "lines_changed": stats.get_loc_changed(),
+            "views": stats.page_views,
+            "last_updated": stats.last_updated,
+        },
+        "languages": sorted_languages
+    }
 
     return render(request, "core/about.html", context)
 
 
 def resume(request):
-    contact = Contact.objects.first()
+    contact = Contact.objects.get(pk=CONTACT_PK)
     education_items = contact.education.all().order_by("-start_date")
     work_experience_items = contact.experience.all().order_by("-start_date")
     certificates = contact.certificates.all()
@@ -102,7 +126,3 @@ class ContactView(View):
             "form": contact_form
         }
         return render(request, "core/contact.html", context)
-
-
-# def contact(request):
-#     return render(request, "core/contact.html")

@@ -19,6 +19,7 @@ class GitHubUser(models.Model):
     excluded_langs = models.CharField(max_length=200, blank=True, null=True)
     exclude_forked_repos = models.BooleanField(default=False)
     stats = models.OneToOneField('UserStats', on_delete=models.CASCADE, default=default_stats)
+    contact = models.ForeignKey('core.Contact', on_delete=models.CASCADE, related_name='github_user')
 
     def __str__(self):
         return self.username
@@ -96,6 +97,7 @@ class UserStats(models.Model):
     loc_deleted = models.IntegerField(blank=True, null=True)
     # loc_changed = models.IntegerField(blank=True, null=True)
     page_views = models.IntegerField(blank=True, null=True)
+    last_updated = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         if self.name is None:

@@ -51,6 +51,45 @@
       </div>
       <!-- End of Personal Information -->
 
+
+      <div class="white-space-30"></div>
+
+      <div class="row">
+        <div class="col-xs-12 col-sm-12">
+          <div class="block-title">
+            <h3>GitHub <span>Stats</span></h3>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-12 col-sm-6">
+        {% include "github/github_stats.html" %}
+        </div>
+        <div class="col-xs-12 col-sm-6">
+          {% include "github/github_language_stats.html" %}
+          <div class="white-space-20"></div>
+          <p class="percent">Last updated: {{ stats.last_updated }}</p>
+        </div>
+      </div>
+
+      <!--
+      <div class="row">
+        <div class="col-xs-12 col-sm-6">
+          <img src="https://github-readme-stats.vercel.app/api?username=obause&theme=dark&hide_border=true&include_all_commits=true&count_private=true" alt="">
+        </div>
+        <div class="col-xs-12 col-sm-6">
+          <img src="https://github-readme-streak-stats.herokuapp.com/?user=obause&theme=dark&hide_border=true" alt="">
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-12 col-sm-12">
+          <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=obause&langs_count=6&theme=dark&hide_border=true&include_all_commits=true&count_private=true&layout=compact&hide=Jupyter%20Notebook&exclude_repo=github-stats-api" alt="" width="48%">
+        </div>
+      </div>
+    -->
+
       <div class="white-space-50"></div>
 
       <!-- Services -->
@@ -67,31 +106,6 @@
       {% endfor %}
     </div>
       <!-- End of Services -->
-
-      <div class="white-space-30"></div>
-      <div class="row">
-        <div class="col-xs-12 col-sm-12">
-          <div class="block-title">
-            <h3>GitHub <span>Stats</span></h3>
-          </div>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col-xs-12 col-sm-6">
-          <img src="https://github-readme-stats.vercel.app/api?username=obause&theme=dark&hide_border=true&include_all_commits=true&count_private=true" alt="">
-        </div>
-        <div class="col-xs-12 col-sm-6">
-          <img src="https://github-readme-streak-stats.herokuapp.com/?user=obause&theme=dark&hide_border=true" alt="">
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col-xs-12 col-sm-12">
-          <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=obause&langs_count=6&theme=dark&hide_border=true&include_all_commits=true&count_private=true&layout=compact&hide=Jupyter%20Notebook&exclude_repo=github-stats-api" alt="" width="48%">
-        </div>
-      </div>
-
 
       <div class="white-space-50"></div>
 

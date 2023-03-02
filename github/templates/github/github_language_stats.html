@@ -1,0 +1,39 @@
+<div class="gh-lang-card" id="gh-dark-mode-only" width="360" height="210" xmlns="http://www.w3.org/2000/svg">
+    <style>
+
+    </style>
+    <g>
+    <rect x="5" y="5" id="background" />
+    <g>
+    <foreignObject x="21" y="17" width="318" height="176">
+    <div xmlns="http://www.w3.org/1999/xhtml" class="ellipsis">
+
+    <h2 class="gh-lang-title">Languages Used (By File Size)</h2>
+
+    <div>
+    <span class="progress">
+    {% for lang in languages %}
+    <span style="background-color: {{ lang.color }};width: {{ lang.prop|floatformat:3 }}%;" class="progress-item"></span>
+    {% endfor %}
+    </span>
+    </div>
+
+    <ul class="gh-lang-list">
+
+    {% for lang in languages %}
+    <li style="animation-delay: {% widthratio forloop.counter0 1 150 %}ms;">
+        <svg class="octicon" style="fill:{{ lang.color }};" viewBox="0 0 16 16" version="1.1" width="16" height="16">
+            <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8z"></path>
+        </svg>
+        <span class="lang">{{ lang.name }}</span>
+        <span class="percent">{{ lang.prop|floatformat:2 }}%</span>
+    </li>
+    {% endfor %}
+
+    </ul>
+
+    </div>
+    </foreignObject>
+    </g>
+    </g>
+</div>

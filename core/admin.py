@@ -3,7 +3,7 @@ from .models import Contact, Education, SocialMedia, FunFact, Interests, WorkExp
 
 
 class ContactAdmin(admin.ModelAdmin):
-    list_display = ("forename", "lastname")
+    list_display = ("pk", "forename", "lastname")
 
 
 class EducationAdmin(admin.ModelAdmin):
