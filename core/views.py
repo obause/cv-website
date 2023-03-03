@@ -4,6 +4,7 @@ from django.views import View
 from django.http import HttpResponseRedirect
 from django.urls import reverse
 from django.conf import settings
+from django.contrib import messages
 
 from .models import Contact, Interests, WorkExperience
 from .forms import ContactForm
@@ -12,12 +13,6 @@ from github.models import GitHubUser
 from app.tasks import demo_task
 
 CONTACT_PK = settings.CONTACT_PK
-
-
-def test(request):
-    demo_task("Hello world!", repeat=1, repeat_until=None)
-    print("test")
-    return render(request, "core/test.html")
 
 
 def home(request):
@@ -119,8 +114,8 @@ class ContactView(View):
         if contact_form.is_valid():
             comment = contact_form.save(commit=False)
             comment.save()
-            success = True
-            return HttpResponseRedirect(reverse("contact", args=[success]))
+            messages.success(request, 'Thank you! Your message has been sent.')
+            return HttpResponseRedirect(reverse("contact"))
 
         context = {
             "form": contact_form

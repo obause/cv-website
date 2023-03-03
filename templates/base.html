@@ -100,7 +100,8 @@
             </div>
 
             <div class="header-buttons">
-              <a href="#" target="_blank" class="btn btn-primary">Download CV</a>
+              <!--<a href="{% url 'download-cv' %}" target="_blank" class="btn btn-primary">Download CV</a>-->
+              <a href="/files/documents/cv-ole-bause-english.pdf" target="_blank" class="btn btn-primary">Download CV</a>
             </div>
 
             <div class="copyrights">© {% now "Y" %} All rights reserved.</div>
@@ -147,7 +148,7 @@
 
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCrDf32aQTCVENBhFJbMBKOUTiUAABtC2o"></script>
     <script src="{% static 'js/jquery.googlemap.js' %}"></script>
-    <script src="{% static 'js/validator.js' %}"></script>
+    <!--<script src="{% static 'js/validator.js' %}"></script>-->
     <script src="{% static 'js/main.js' %}"></script>
     <script src="{% static 'js/typewriter.js' %}"></script>
     {% block js_files %}{% endblock %}
