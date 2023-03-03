@@ -69,6 +69,7 @@ class SocialMedia(models.Model):
     name = models.CharField(max_length=100)
     url = models.CharField(max_length=100)
     icon = models.CharField(max_length=100)
+    add_to_menu = models.BooleanField(default=False)
 
     def __str__(self):
         return self.name

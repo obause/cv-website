@@ -1,7 +1,4 @@
 /*
-* Template Name: BreezyCV - Resume / CV / vCard / Portfolio Template
-* Author: LMPixels
-* Author URL: http://themeforest.net/user/lmpixels
 * Version: 1.5.0
 */
 
@@ -28,59 +25,59 @@ var PageTransitions = (function ($, options) {
     function init(options) {
 
         // Get all the .animated-section sections.
-        $('.animated-section').each( function() {
+        /*$('.animated-section').each( function() {
             var $page = $(this);
             $page.data('originalClassList', $page.attr('class'));
-        });
+        });*/
 
         // Get all the .pt-wrapper div which is the parent for all pt-div
-        sectionsContainer.each( function() {
+        /*sectionsContainer.each( function() {
             if (location.hash === "") {
                 $('section[data-id='+ pageStart +']').addClass('section-active');
             }
-        });
+        });*/
 
         // Adding click event to main menu link
-        $('.nav-anim').on("click", function (e) {
+        /*$('.nav-anim').on("click", function (e) {
             e.preventDefault();
             if (isAnimating) {
                 return false;
             }
             var pageTrigger = $(this);
 
-            activeMenuItem( pageTrigger );
+            //activeMenuItem( pageTrigger );
 
-            Animate( pageTrigger );
+            //Animate( pageTrigger );
 
             location.hash = $(this).attr('href');
 
-        });
+        });*/
 
-        window.onhashchange = function(event) {
+        /*window.onhashchange = function(event) {
             if(location.hash) {
                 if (isAnimating) {
                     return false;
                 }
                 var menuLink = $(menu+' a[href*="'+location.hash.split('/')[0]+'"]');
-                activeMenuItem( menuLink );
-                Animate(menuLink);
+                //activeMenuItem( menuLink );
+                //Animate(menuLink);
 
                 ajaxLoader();
             }
-        };
+        };*/
 
-        var menu = options.menu,
-        pageStart = getActiveSection();
+        //var menu = options.menu,
+        //pageStart = getActiveSection();
 
-        location.hash = pageStart;
-        var menuLink = $(menu+' a[href*="'+location.hash.split('/')[0]+'"]');
+        //location.hash = pageStart;
+        //var menuLink = $(menu+' a[href*="'+location.hash.split('/')[0]+'"]');
 
-        activeMenuItem(menuLink);
+        //activeMenuItem(menuLink);
 
-        Animate(menuLink);
+        //Animate(menuLink);
 
-        $('body').append('<div id="page-ajax-loaded" class="page-ajax-loaded animated animated-section-moveFromLeft"></div>');
-        ajaxLoader();
+        //$('body').append('<div id="page-ajax-loaded" class="page-ajax-loaded animated animated-section-moveFromLeft"></div>');
+        //ajaxLoader();
 
         $(".lmpixels-arrow-right").click(function() {
             var activeItem = $('.main-menu a.active').parent("li");
@@ -99,10 +96,10 @@ var PageTransitions = (function ($, options) {
         });
     }
 
-    function getActiveSection() {
+    /*function getActiveSection() {
         if(location.hash === "") {
             return location.hash = $('section.animated-section').first().attr('data-id');
-        } 
+        }
         else {
             return location.hash;
         }
@@ -116,7 +113,7 @@ var PageTransitions = (function ($, options) {
         var navLink = $(item);
         navLink = navLink['0'];
         navLink = $(navLink);
-            
+
         if(navLink) {
             $('ul.main-menu a').removeClass('active');
             navLink.addClass('active');
@@ -469,7 +466,7 @@ var PageTransitions = (function ($, options) {
             currentPageId = $pageWrapper.data('current'), tempPageIndex,
             linkhref = $pageTrigger.attr('href').split("#"),
             gotoPage = linkhref[1];
-            
+
             tempPageIndex = currentPageId;
 
             // Current page to be removed.
@@ -530,7 +527,7 @@ var PageTransitions = (function ($, options) {
     function resetPage($nextPage, $currentPage) {
         $currentPage.attr('class', $currentPage.data('originalClassList'));
         $nextPage.attr('class', $nextPage.data('originalClassList') + ' section-active');
-    }
+    }*/
 
     return {
         init : init,
