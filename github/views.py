@@ -27,8 +27,7 @@ async def get_stats(github_user):
     # Convert a truthy value to a Boolean
     raw_ignore_forked_repos = github_user.exclude_forked_repos
     ignore_forked_repos = (
-        not not raw_ignore_forked_repos
-        and raw_ignore_forked_repos.strip().lower() != "false"
+        not not raw_ignore_forked_repos and raw_ignore_forked_repos.strip().lower() != "false"
     )
 
     data = {}

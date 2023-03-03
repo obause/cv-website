@@ -16,19 +16,19 @@ SKILL_CATEGORY = (
 # Create your models here.
 class Contact(models.Model):
     forename = models.CharField(max_length=100)
-    lastname = models.CharField(max_length=100)
-    gender = models.CharField(choices=GENDER_TYPES, max_length=10)
-    email = models.CharField(max_length=100)
-    phone = models.CharField(max_length=100)
-    birthdate = models.DateField()
-    address = models.TextField(max_length=1000)
-    nationality = models.CharField(max_length=100)
-    social_media = models.ManyToManyField("SocialMedia", blank=True)
-    website = models.CharField(max_length=100, blank=True)
-    profile_image = models.ImageField(upload_to="images/profile_pics", blank=True)
-    description = models.TextField(max_length=2000, blank=True)
-    slogan = models.CharField(max_length=100, blank=True)
-    skills = models.ManyToManyField("Skill", blank=True)
+    lastname = models.CharField(max_length=100, blank=True, null=True)
+    gender = models.CharField(choices=GENDER_TYPES, max_length=10, blank=True, null=True)
+    email = models.CharField(max_length=100, blank=True, null=True)
+    phone = models.CharField(max_length=100, blank=True, null=True)
+    birthdate = models.DateField(blank=True, null=True)
+    address = models.TextField(max_length=1000, blank=True, null=True)
+    nationality = models.CharField(max_length=100, blank=True, null=True)
+    social_media = models.ManyToManyField("SocialMedia")
+    website = models.CharField(max_length=100, blank=True, null=True)
+    profile_image = models.ImageField(upload_to="images/profile_pics", blank=True, null=True)
+    description = models.TextField(max_length=2000, blank=True, null=True)
+    slogan = models.CharField(max_length=100, blank=True, null=True)
+    skills = models.ManyToManyField("Skill")
 
     def full_name(self):
         return f"{self.forename} {self.lastname}"
