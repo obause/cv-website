@@ -12,6 +12,6 @@ then
 fi
 
 # start background tasks
-python manage.py process_tasks
+nohup python manage.py process_tasks
 
 exec "$@"
