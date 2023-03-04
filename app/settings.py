@@ -38,10 +38,10 @@ def get_secret(setting, secrets=secrets):
 
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get("SECRET_KEY")
+SECRET_KEY = os.environ.get("SECRET_KEY", "django-insecure-+0!$%&^&*()_+")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ.get("DEBUG", False)
+DEBUG = os.environ.get("DEBUG", True)
 
 ALLOWED_HOSTS = os.environ.get("DJANGO_ALLOWED_HOSTS", "*").split(" ")
 
@@ -61,6 +61,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.humanize',
+    'django.contrib.sites',
+    'django.contrib.sitemaps'
 ]
 
 MIDDLEWARE = [
@@ -147,7 +149,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
 STATIC_URL = 'static/'
-STATIC_ROOT = BASE_DIR / "staticfiles"
+# STATIC_ROOT = BASE_DIR / "staticfiles"
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
@@ -161,9 +163,10 @@ STATICFILES_DIRS = [
 MEDIA_ROOT = BASE_DIR / "mediafiles"
 MEDIA_URL = "/files/"
 
-SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
+# SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
 
 GITHUB_ACCESS_TOKEN = get_secret("GITHUB_ACCESS_TOKEN")
 GITHUB_USER = get_secret("GITHUB_USER")
 
+SITE_ID = 1
 CONTACT_PK = 1
