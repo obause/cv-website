@@ -10,13 +10,14 @@ from .models import Contact, Interests, WorkExperience
 from .forms import ContactForm
 from github.models import GitHubUser
 
-from app.tasks import demo_task
+from app.tasks import github_task
 
 CONTACT_PK = settings.CONTACT_PK
 
 
 def home(request):
     # contact = Contact.objects.first()
+    github_task("update stats")
 
     return render(request, "core/main.html")
 
