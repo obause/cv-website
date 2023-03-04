@@ -45,6 +45,7 @@ DEBUG = os.environ.get("DEBUG", True)
 
 ALLOWED_HOSTS = os.environ.get("DJANGO_ALLOWED_HOSTS", "*").split(" ")
 
+CSRF_TRUSTED_ORIGINS = ['https://bause.me', 'https://127.0.0.1']
 
 # Application definition
 
