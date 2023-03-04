@@ -17,12 +17,24 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf.urls.static import static
 from django.conf import settings
+from django.contrib.sitemaps import GenericSitemap
+from django.contrib.sitemaps.views import sitemap
+
+from .sitemaps import CoreSitemap, BlogSitemap
+
+app_name = 'app'
+
+sitemaps = {
+    "core": CoreSitemap,
+    "blog": BlogSitemap,
+}
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('core.urls')),
+    path('', include('core.urls', namespace='core')),
     path('blog/', include('blog.urls')),
     path('resume-pdf/', include('pdfgen.urls')),
-    path('github/', include('github.urls'))
+    path('github/', include('github.urls')),
+    path('sitemap.xml', sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap')
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)  # \
-# + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+#  + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
