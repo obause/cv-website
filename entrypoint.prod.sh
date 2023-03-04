@@ -11,4 +11,7 @@ then
     echo "PostgreSQL started"
 fi
 
+# start background tasks
+python manage.py process_tasks
+
 exec "$@"
